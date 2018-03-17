@@ -1,0 +1,43 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 对应model类 -->
+<mapper namespace="com.wiatec.liveplay.dao.ChannelDao">
+    <!-- model类与数据表的映射关系 -->
+    <resultMap type="com.wiatec.liveplay.entities.ChannelInfo" id="channelInfo">
+        <!-- id标签对应主键 -->
+        <id column="id" property="id"/>
+        <!-- result标签对应普通column -->
+        <result column="channelId" property="channelId"/>
+        <result column="sequence" property="sequence"/>
+        <result column="tag" property="tag"/>
+        <result column="name" property="name"/>
+        <result column="url" property="url"/>
+        <result column="icon" property="icon"/>
+        <result column="type" property="type"/>
+        <result column="country" property="country"/>
+        <result column="style" property="style"/>
+        <result column="visible" property="visible"/>
+        <result column="locked" property="locked"/>
+    </resultMap>
+
+    <sql id="selectAll">SELECT id, channelId, sequence, tag, name, url, icon, type, country, style, visible, locked FROM channel</sql>
+
+    <select id="queryAll" resultMap="channelInfo">
+        <include refid="selectAll"/>
+        order by name
+    </select>
+
+    <select id="queryByCountry" resultMap="channelInfo" parameterType="java.lang.String">
+        <include refid="selectAll"/>
+        WHERE country = #{_parameter} and visible=1 order by name
+    </select>
+
+    <select id="queryByName" resultMap="channelInfo" parameterType="java.lang.String">
+        <include refid="selectAll"/>
+        WHERE name LIKE concat('%',#{username},'%')
+        AND visible=1
+        ORDER BY name
+    </select>
+
+</mapper>

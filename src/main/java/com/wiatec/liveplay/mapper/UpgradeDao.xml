@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 对应model类 -->
+<mapper namespace="com.wiatec.liveplay.dao.UpgradeDao">
+    <!-- model类与数据表的映射关系 -->
+    <resultMap type="com.wiatec.liveplay.entities.UpgradeInfo" id="upgradeInfo">
+        <!-- id标签对应主键 -->
+        <id column="id" property="id"/>
+        <!-- result标签对应普通column -->
+        <result column="packageName" property="packageName"/>
+        <result column="url" property="url"/>
+        <result column="version" property="version"/>
+        <result column="code" property="code"/>
+        <result column="info" property="info"/>
+    </resultMap>
+
+    <!-- 根据需要配置sql语句 -->
+    <select id="selectUpgrade" resultMap="upgradeInfo">
+        SELECT id, packageName, url, version, code, info FROM upgrade
+    </select>
+
+</mapper>

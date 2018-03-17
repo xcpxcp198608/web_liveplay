@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 对应model类 -->
+<mapper namespace="com.wiatec.liveplay.dao.RequiredApkDao">
+    <resultMap type="com.wiatec.liveplay.entities.RequiredApkInfo" id="requiredApkInfo">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="url" property="url"/>
+        <result column="code" property="code"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="requiredApkInfo">
+        SELECT id, name, url, code FROM required_apk
+    </select>
+
+    <select id="selectByName" resultMap="requiredApkInfo" parameterType="java.lang.String">
+        SELECT id, name, url, code FROM required_apk WHERE name=#{_parameter}
+    </select>
+
+</mapper>

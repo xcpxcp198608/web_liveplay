@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: net.authorize:anet-java-sdk:1.9.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.authorize/anet-java-sdk/1.9.4/cfea11825ad24e1489748f620b92f0d42e339425/anet-java-sdk-1.9.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.authorize/anet-java-sdk/1.9.4/9fa10659172cc9cd855594cebab6990de2126c17/anet-java-sdk-1.9.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

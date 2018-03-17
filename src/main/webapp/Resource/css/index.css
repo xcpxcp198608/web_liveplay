@@ -1,0 +1,13 @@
+#bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#login_div{ width: 300px;  margin: 200px auto }
+
+#login_div p{ font-size: 14px; color: red }
+
+#sign_in { width: 300px; background-color: purple }

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.codehaus.woodstox:stax2-api:3.0.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.woodstox/stax2-api/3.0.2/f50791c1c163c9c9410f9dc78fe03397959d08c1/stax2-api-3.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.woodstox/stax2-api/3.0.2/d369368c0009aa70796929fbcdbae6914f38b1ca/stax2-api-3.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

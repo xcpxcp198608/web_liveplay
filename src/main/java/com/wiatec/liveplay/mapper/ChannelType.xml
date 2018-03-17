@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 对应model类 -->
+<mapper namespace="com.wiatec.liveplay.dao.ChannelTypeDao">
+    <!-- model类与数据表的映射关系 -->
+    <resultMap type="com.wiatec.liveplay.entities.ChannelTypeInfo" id="channelTypeInfo">
+        <!-- id标签对应主键 -->
+        <id column="id" property="id"/>
+        <!-- result标签对应普通column -->
+        <result column="tag" property="tag"/>
+        <result column="name" property="name"/>
+        <result column="icon" property="icon"/>
+        <result column="flag" property="flag"/>
+        <result column="type" property="type"/>
+    </resultMap>
+
+    <!-- 根据需要配置sql语句 -->
+    <select id="queryByType" resultMap="channelTypeInfo" parameterType="integer">
+        SELECT id, tag, name, icon, flag, type FROM channeltype
+        WHERE type=#{_parameter}
+    </select>
+
+
+</mapper>

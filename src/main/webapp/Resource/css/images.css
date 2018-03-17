@@ -1,0 +1,14 @@
+#ul_images{ display: block; float: left; list-style: none}
+
+#ul_images li{ box-shadow: 0 0 5px #000; float: left; margin: 20px}
+
+#ul_images .preview{ width: 340px; max-height: 200px; min-height: 200px}
+
+.operate_div { width: 340px; height: 30px; background-color: purple; opacity: 0.9; position: absolute;
+    bottom: 0; left: 0}
+
+.operate_div a { width: 30px; height: 30px; padding: 3px; float: right; text-align: center; cursor: pointer}
+
+#ul_images .o_img{ width: 24px;}
+
+#btn-add {background-color: purple; float: right; margin-right: 30px}

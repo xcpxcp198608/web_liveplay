@@ -1,0 +1,20 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wiatec.liveplay.dao.ChannelType1Dao">
+    <resultMap type="com.wiatec.liveplay.entities.ChannelType2Info" id="channelType1Info">
+        <id column="id" property="id"/>
+        <result column="tag" property="tag"/>
+        <result column="name" property="name"/>
+        <result column="url" property="url"/>
+        <result column="type" property="type"/>
+        <result column="flag" property="flag"/>
+    </resultMap>
+
+    <select id="selectByType" parameterType="java.lang.String" resultMap="channelType1Info">
+        SELECT id, tag, name, url, type, flag FROM channeltype1 WHERE type=#{_parameter} ORDER BY name
+    </select>
+
+
+</mapper>

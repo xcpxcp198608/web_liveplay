@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wiatec.liveplay.dao.ChannelReportDao">
+    <resultMap type="com.wiatec.liveplay.entities.ChannelReportInfo" id="channelReportInfo">
+        <id column="id" property="id"/>
+        <result column="userName" property="userName"/>
+        <result column="channelName" property="channelName"/>
+        <result column="message" property="message"/>
+        <result column="reportTime" property="reportTime"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="channelReportInfo">
+        select id, userName, channelName, message, reportTime from channelreport ORDER BY id DESC
+    </select>
+
+    <insert id="insertOne" parameterType="com.wiatec.liveplay.entities.ChannelReportInfo">
+        INSERT INTO channelreport (userName, channelName, message) VALUES (#{userName}, #{channelName}, #{message})
+    </insert>
+
+</mapper>

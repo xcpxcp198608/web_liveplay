@@ -1,0 +1,55 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wiatec.liveplay.dao.LogChannelViewDao">
+    <resultMap type="com.wiatec.liveplay.entities.LogChannelViewInfo" id="logChannelViewInfo">
+        <id column="id" property="id"/>
+        <result column="tag" property="tag"/>
+        <result column="channel_name" property="channelName"/>
+        <result column="username" property="username"/>
+        <result column="mac" property="mac"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="view_time" property="viewTime"/>
+    </resultMap>
+
+    <resultMap type="com.wiatec.liveplay.entities.ViewLogInfo" id="viewLogInfo">
+        <result column="channelName" property="channelName"/>
+        <result column="count" property="count"/>
+        <result column="duration" property="duration"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="logChannelViewInfo">
+        SELECT id, tag, channel_name, username, mac, start_time, end_time, view_time
+        FROM log_channel_view
+    </select>
+
+    <select id="selectView" resultMap="viewLogInfo">
+        SELECT channel_name channelName, count(*) count, sum(view_time) duration FROM log_channel_view GROUP BY channelName ORDER BY count DESC;
+    </select>
+
+    <select id="selectOne" resultMap="logChannelViewInfo" parameterType="com.wiatec.liveplay.entities.LogChannelViewInfo">
+        SELECT id, tag, channel_name, username, mac, start_time, end_time, view_time
+        FROM log_channel_view
+        WHERE tag=#{tag}
+    </select>
+
+    <select id="selectByName" resultMap="logChannelViewInfo" parameterType="java.lang.String">
+        SELECT id, tag, channel_name, username, mac, start_time, end_time, view_time
+        FROM log_channel_view
+        WHERE channel_name=#{_parameter}
+        ORDER BY view_time DESC
+    </select>
+
+    <insert id="insertOne" parameterType="com.wiatec.liveplay.entities.LogChannelViewInfo">
+        INSERT INTO log_channel_view (tag, channel_name, username, mac, start_time)
+        VALUES (#{tag}, #{channelName}, #{username}, #{mac}, #{startTime})
+    </insert>
+
+    <update id="updateOne" parameterType="com.wiatec.liveplay.entities.LogChannelViewInfo">
+        UPDATE log_channel_view
+        SET end_time=#{endTime}, view_time=#{viewTime}
+        WHERE tag=#{tag}
+    </update>
+
+</mapper>
