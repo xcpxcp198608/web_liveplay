@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 
 /**
  * the controller of channel type information
+ * @author patrick
  */
 @Controller
 @RequestMapping(value = "/channel_type")

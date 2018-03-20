@@ -2,6 +2,7 @@ package com.wiatec.liveplay.service;
 
 import com.wiatec.liveplay.common.result.EnumResult;
 import com.wiatec.liveplay.common.result.ResultInfo;
+import com.wiatec.liveplay.common.result.ResultMaster;
 import com.wiatec.liveplay.common.result.XException;
 import com.wiatec.liveplay.common.utils.TokenUtil;
 import com.wiatec.liveplay.dao.UpgradeDao;
@@ -22,12 +23,12 @@ public class UpgradeService extends BaseService<UpgradeInfo>{
     @Resource
     private UpgradeDao upgradeDao;
 
-    public ResultInfo<UpgradeInfo> query(String token){
+    public ResultInfo<UpgradeInfo> query(String token) {
         ResultInfo<UpgradeInfo> resultInfo = new ResultInfo<>();
-        if(!TokenUtil.tokenValidate(token)){
+        if (!TokenUtil.tokenValidate(token)) {
             throw new XException(EnumResult.ERROR_UNAUTHORIZED);
         }
-        List<UpgradeInfo> upgradeInfoList = upgradeDao.selectUpgrade();
-        return setListResult(resultInfo, upgradeInfoList);
+        UpgradeInfo upgradeInfo = upgradeDao.selectUpgrade();
+        return ResultMaster.success(upgradeInfo);
     }
 }

@@ -1,5 +1,6 @@
 package com.wiatec.liveplay.api;
 
+import com.wiatec.liveplay.common.result.ResultInfo;
 import com.wiatec.liveplay.entities.ChannelType1Info;
 import com.wiatec.liveplay.service.ChannelType1Service;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class ChannelType1 {
 
     @GetMapping(value = "/{type}/{token}")
     @ResponseBody
-    public List<ChannelType1Info> get(@PathVariable String type, @PathVariable("token") String token){
+    public ResultInfo<ChannelType1Info> get(@PathVariable String type, @PathVariable("token") String token){
         return channelType1Service.selectByType(type);
     }
 

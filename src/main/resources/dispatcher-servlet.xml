@@ -26,7 +26,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/images/**"/>
             <mvc:mapping path="/logs/**"/>
-            <mvc:mapping path="/report/**"/>
+            <mvc:mapping path="/report/"/>
             <bean class="com.wiatec.liveplay.common.mvc.AuthInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

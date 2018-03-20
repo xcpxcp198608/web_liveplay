@@ -17,7 +17,7 @@
 
     <!-- 根据需要配置sql语句 -->
     <select id="selectUpgrade" resultMap="upgradeInfo">
-        SELECT id, packageName, url, version, code, info FROM upgrade
+        SELECT id, packageName, url, version, code, info FROM upgrade WHERE id = 1
     </select>
 
 </mapper>

@@ -4,7 +4,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
     <base href="<%=basePath%>">
@@ -34,8 +34,8 @@
 </head>
 
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="#">LivePlay</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="btToggler">
@@ -57,6 +57,9 @@
                 <a class="nav-link" name="nav" value="china">China</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" name="nav" value="TAIWAN&HK&MC">TAIWAN&HK&MC</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" name="nav" value="latino">Latino</a>
             </li>
             <li class="nav-item">
@@ -74,11 +77,12 @@
         </ul>
     </div>
 </nav>
+</div>
 
 <div class="row" style="padding: 10px; margin-top: 60px" id="dChannel"></div>
 
 
-<div style="position: absolute; left:48%; top:49%; z-index: 100; color: gray"
+<div style="position: absolute; left:50%; top:50%; z-index: 100; color: gray"
      class="text-center" id="dLoading">
     loading...
 </div>
@@ -87,14 +91,15 @@
 <script type="text/javascript">
 
     $(function () {
+        var loadingWidth = $('#dLoading').outerWidth() / 2 ;
+        $('#dLoading').css('margin-left', -loadingWidth);
+
         show.listChannel.execute('sports');
         $('a[name=nav]').click(function () {
             $('#btToggler').click();
             var category = $(this).attr('value');
             show.listChannel.execute(category);
         });
-
-
 
     });
 </script>

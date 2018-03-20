@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface UpgradeDao {
 
-    List<UpgradeInfo> selectUpgrade();
+    UpgradeInfo selectUpgrade();
 }

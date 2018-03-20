@@ -44,6 +44,4 @@ public class Channel {
         return channelService.searchByName(key, token);
     }
 
-
-
 }
